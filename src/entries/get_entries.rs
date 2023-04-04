@@ -39,12 +39,14 @@ fn parse_entries(data_file: &str) -> Vec<Entry> {
 
     for _item in result_id.clone() {
         let non_mut_result_id = result_id.clone();
-        result.push(
-            Entry {
-                id: result_id[index].replace(r#"""#, "").replace(", ", "").parse().unwrap(),
-                content: result_content[index].clone()
-            }
-        );
+        result.push(Entry {
+            id: result_id[index]
+                .replace(r#"""#, "")
+                .replace(", ", "")
+                .parse()
+                .unwrap(),
+            content: result_content[index].clone(),
+        });
 
         index += 1;
     }
