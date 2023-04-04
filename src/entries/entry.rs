@@ -1,3 +1,4 @@
+#[derive(Debug, Default, Clone)]
 pub struct Entry {
     pub id: u32,
     pub content: String,
