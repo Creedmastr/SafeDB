@@ -1,9 +1,14 @@
-
-
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct Entry {
     pub id: u32,
     pub content: String,
+}
+
+fn new_entry(content: String) -> Entry {
+    Entry {
+        id: rand::random::<u32>(),
+        content: content
+    }
 }
 
 impl Entry {
@@ -19,5 +24,17 @@ impl Entry {
             + "},";
 
         string
+    }
+}
+
+pub trait EntryConversions {
+    fn to_entry(&self) -> Entry;
+}
+
+impl EntryConversions for String {
+    fn to_entry(&self) -> Entry {
+        let result = new_entry(self.to_string());
+
+        result 
     }
 }

@@ -7,7 +7,7 @@ pub mod entries;
 pub mod init;
 
 fn main() {
-    add_entry("Entry".to_string());
+    add_entry("Entry Content".to_string());
 
     // Just verify if the argument -init is passed, in which case we erase the DB
     {
