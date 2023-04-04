@@ -5,7 +5,7 @@ use std::{
 
 use super::entry::Entry;
 
-fn parse_entries(data_file: &str) -> Vec<Entry> {
+fn parse_entries_files(data_file: &str) -> Vec<Entry> {
     let mut result_content: Vec<String> = vec![];
     let mut result_id: Vec<String> = vec![];
 
@@ -38,7 +38,6 @@ fn parse_entries(data_file: &str) -> Vec<Entry> {
     let mut index = 0;
 
     for _item in result_id.clone() {
-        let non_mut_result_id = result_id.clone();
         result.push(Entry {
             id: result_id[index]
                 .replace(r#"""#, "")
@@ -55,5 +54,5 @@ fn parse_entries(data_file: &str) -> Vec<Entry> {
 }
 
 pub fn get_entries() -> Vec<Entry> {
-    return parse_entries("./data.txt");
+    return parse_entries_files("./data.txt");
 }
